@@ -22,7 +22,7 @@
   <meta name="twitter:image" content="https://autohof-moerlenbach.de/assets/img/og-image.jpg">
   <link rel="stylesheet" href="assets/css/tailwind.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="assets/js/lucide.min.js" defer></script>
 </head>
 <body class="bg-[var(--color-bg)] text-[var(--color-text)] font-sans antialiased">
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 z-50 bg-[var(--color-primary)] text-white px-4 py-2 rounded">Zum Inhalt springen</a>
@@ -72,7 +72,7 @@
           <div>
             <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">Über uns</h2>
             <p class="text-[var(--color-text-light)] leading-relaxed mb-4">Seit Jahren ist der Autohof Mörlenbach Ihr kompetenter Ansprechpartner für geprüfte Gebrauchtwagen im Odenwald. Wir legen Wert auf Qualität, Transparenz und eine persönliche Beratung, die Sie versteht.</p>
-            <p class="text-[var(--color-text-light)] leading-relaxed">Ob Sie ein zuverlässiges Fahrzeug für den Alltag suchen oder sich professionell beraten lassen möchten – bei uns stehen Sie im Mittelpunkt.</p>
+            <p class="text-[var(--color-text-light)] leading-relaxed">Ob Sie ein zuverlässiges Fahrzeug für den Alltag suchen oder sich professionell beraten lassen möchten - bei uns stehen Sie im Mittelpunkt.</p>
           </div>
           <div class="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)]">
             <div class="flex items-center gap-4 mb-4">
@@ -127,39 +127,51 @@
 
     <section id="kontakt" class="py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">Kontakt</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">Kontaktieren Sie uns</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <a href="tel:+491757060349" class="group flex flex-col items-center text-center p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-4 group-hover:bg-[var(--color-primary)] group-hover:text-white transition">
+              <i data-lucide="phone" class="w-6 h-6"></i>
+            </span>
+            <span class="font-semibold text-[var(--color-primary)] mb-1">Telefon</span>
+            <span class="text-[var(--color-text-light)]">0175 7060349</span>
+          </a>
+          <a href="https://wa.me/491757060349" target="_blank" rel="noopener" class="group flex flex-col items-center text-center p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-4 group-hover:bg-[var(--color-primary)] group-hover:text-white transition">
+              <i data-lucide="message-circle" class="w-6 h-6"></i>
+            </span>
+            <span class="font-semibold text-[var(--color-primary)] mb-1">WhatsApp</span>
+            <span class="text-[var(--color-text-light)]">Schreiben Sie uns auf WhatsApp</span>
+          </a>
+          <a href="mailto:info@autohof-moerlenbach.de" class="group flex flex-col items-center text-center p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-lg hover:-translate-y-1 transition">
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] mb-4 group-hover:bg-[var(--color-primary)] group-hover:text-white transition">
+              <i data-lucide="mail" class="w-6 h-6"></i>
+            </span>
+            <span class="font-semibold text-[var(--color-primary)] mb-1">E-Mail</span>
+            <span class="text-[var(--color-text-light)]">info@autohof-moerlenbach.de</span>
+          </a>
+        </div>
         <div class="grid md:grid-cols-2 gap-8">
           <div class="space-y-4">
+            <h3 class="font-semibold text-[var(--color-primary)]">Anfahrt</h3>
             <p class="flex items-start gap-3 text-[var(--color-text-light)]">
               <i data-lucide="map-pin" class="mt-1 text-[var(--color-primary)]"></i>
               <span>Weinheimer Str. 41<br>69509 Mörlenbach</span>
             </p>
             <p class="flex items-center gap-3 text-[var(--color-text-light)]">
-              <i data-lucide="phone" class="text-[var(--color-primary)]"></i>
-              <a href="tel:01757060349" class="hover:text-[var(--color-primary)]">0175 7060349</a>
-            </p>
-            <p class="flex items-center gap-3 text-[var(--color-text-light)]">
-              <i data-lucide="mail" class="text-[var(--color-primary)]"></i>
-              <a href="mailto:info@autohof-moerlenbach.de" class="hover:text-[var(--color-primary)]">info@autohof-moerlenbach.de</a>
-            </p>
-            <p class="flex items-center gap-3 text-[var(--color-text-light)]">
               <i data-lucide="clock" class="text-[var(--color-primary)]"></i>
-              <span>Mo-Fr 9:00-18:00 · Sa 9:00-13:00</span>
+              <span id="opening-hours">Öffnungszeiten werden geladen...</span>
             </p>
           </div>
-          <div class="space-y-6">
-            <h3 class="font-semibold text-[var(--color-primary)]">Anfahrt</h3>
-            <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-[var(--color-border)]">
-              <iframe
-                class="absolute inset-0 w-full h-full"
-                src="https://maps.google.de/maps?q=Weinheimer+Str.+41+69509+Mörlenbach&output=embed"
-                title="Standort Autohof Mörlenbach"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-            <p class="text-sm text-[var(--color-text-light)]">Besuchen Sie uns in Mörlenbach. Wir freuen uns auf Ihren Besuch.</p>
+          <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-[var(--color-border)]">
+            <iframe
+              class="absolute inset-0 w-full h-full"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2582.0!2d8.7352399!3d49.6162256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b6e79df210fa1b%3A0x96f6d8662a940e75!2sAutohof%20M%C3%B6rlenbach!5e0!3m2!1sde!2sde"
+              title="Standort Autohof Mörlenbach"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>
@@ -169,21 +181,19 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">Impressum</h2>
         <div class="prose prose-sm max-w-none text-[var(--color-text-light)]">
-          <p class="font-semibold text-[var(--color-text)]">Autohof Mörlenbach</p>
-          <p>Weinheimer Str. 41<br>69509 Mörlenbach<br>Deutschland</p>
-
-          <p class="mt-4"><strong class="text-[var(--color-text)]">Vertretungsberechtigter:</strong><br>Ali Cevik (Geschäftsführer)</p>
+          <p class="font-semibold text-[var(--color-text)]">Angaben gemäß § 5 TMG</p>
+          <p class="mt-2">Autohof Mörlenbach<br>Weinheimer Str. 41<br>69509 Mörlenbach<br>Deutschland</p>
 
           <p class="mt-4"><strong class="text-[var(--color-text)]">Kontakt:</strong><br>
-            Telefon: <a href="tel:01757060349" class="hover:text-[var(--color-primary)]">0175 7060349</a><br>
+            Telefon: <a href="tel:+491757060349" class="hover:text-[var(--color-primary)]">0175 7060349</a><br>
             E-Mail: <a href="mailto:info@autohof-moerlenbach.de" class="hover:text-[var(--color-primary)]">info@autohof-moerlenbach.de</a>
           </p>
 
-          <p class="mt-4"><strong class="text-[var(--color-text)]">Umsatzsteuer-ID:</strong><br>DE 123 456 789 (gemäß § 27a UStG)</p>
+          <p class="mt-4"><strong class="text-[var(--color-text)]">Vertretungsberechtigt:</strong><br>Max Mustermann</p>
 
-          <p class="mt-4"><strong class="text-[var(--color-text)]">Handelsregister:</strong><br>Nicht eingetragen (Kleingewerbe)</p>
+          <p class="mt-4"><strong class="text-[var(--color-text)]">Umsatzsteuer-ID:</strong><br>DE999999999</p>
 
-          <p class="mt-4"><strong class="text-[var(--color-text)]">Verantwortlich für den Inhalt nach § 18 MStV:</strong><br>Ali Cevik, Autohof Mörlenbach, Weinheimer Str. 41, 69509 Mörlenbach</p>
+          <p class="mt-6 text-sm text-[var(--color-text-light)]">Dies ist eine Muster-Website. Die Angaben sind Demonstrationsdaten und müssen vor der Veröffentlichung durch echte Daten ersetzt werden.</p>
         </div>
       </div>
     </section>
@@ -195,10 +205,9 @@
           <p class="font-semibold text-[var(--color-text)]">1. Verantwortlicher</p>
           <p>Verantwortlich für die Datenverarbeitung ist:<br>
             Autohof Mörlenbach<br>
-            Ali Cevik (Geschäftsführer)<br>
             Weinheimer Str. 41, 69509 Mörlenbach<br>
             E-Mail: <a href="mailto:info@autohof-moerlenbach.de" class="hover:text-[var(--color-primary)]">info@autohof-moerlenbach.de</a><br>
-            Telefon: <a href="tel:01757060349" class="hover:text-[var(--color-primary)]">0175 7060349</a>
+            Telefon: <a href="tel:+491757060349" class="hover:text-[var(--color-primary)]">0175 7060349</a>
           </p>
 
           <p class="font-semibold text-[var(--color-text)]">2. Erhebung und Verarbeitung personenbezogener Daten</p>
@@ -214,7 +223,7 @@
           <p>Ihre Daten werden nur so lange gespeichert, wie es für die genannten Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen (z. B. nach Handels- und Steuerrecht).</p>
 
           <p class="font-semibold text-[var(--color-text)]">6. Ihre Rechte</p>
-          <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch (Art. 15–22 DSGVO). Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte über die oben genannten Kontaktdaten.</p>
+          <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch (Art. 15-22 DSGVO). Zur Ausübung Ihrer Rechte kontaktieren Sie uns bitte über die oben genannten Kontaktdaten.</p>
 
           <p class="font-semibold text-[var(--color-text)]">7. Beschwerde bei einer Aufsichtsbehörde</p>
           <p>Sie haben das Recht, sich bei einer zuständigen Datenschutzaufsichtsbehörde zu beschweren. Zuständig ist der Landesdatenschutzbeauftragte des Bundeslandes, in dem sich unser Sitz befindet: <a href="https://datenschutz.hessen.de" target="_blank" rel="noopener" class="hover:text-[var(--color-primary)]">Hessischer Datenschutzbeauftragter</a>.</p>
@@ -228,12 +237,35 @@
     </section>
   </main>
 
-  <footer class="bg-[var(--color-primary)] text-white py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-white/80">© <span id="year"></span> Autohof Mörlenbach</p>
-      <div class="flex items-center gap-6">
-        <a href="#impressum" class="text-sm text-white/80 hover:text-white">Impressum</a>
-        <a href="#datenschutz" class="text-sm text-white/80 hover:text-white">Datenschutz</a>
+  <footer class="bg-footer text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h3 class="font-bold text-lg mb-3">Autohof Mörlenbach</h3>
+          <p class="text-white/80 text-sm leading-relaxed">Ihr zuverlässiger Ansprechpartner für geprüfte Gebrauchtwagen im Odenwald. Qualität, Transparenz und persönliche Beratung stehen bei uns an erster Stelle.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-3">Schnelllinks</h3>
+          <ul class="space-y-2 text-sm text-white/80">
+            <li><a href="#angebot" class="hover:text-white transition">Angebot</a></li>
+            <li><a href="#ueber-uns" class="hover:text-white transition">Über uns</a></li>
+            <li><a href="#kontakt" class="hover:text-white transition">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-3">Kontakt</h3>
+          <ul class="space-y-2 text-sm text-white/80">
+            <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> <a href="tel:+491757060349" class="hover:text-white transition">0175 7060349</a></li>
+            <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> <a href="mailto:info@autohof-moerlenbach.de" class="hover:text-white transition">info@autohof-moerlenbach.de</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-white/80">© <span id="year">2026</span> Autohof Mörlenbach</p>
+        <div class="flex items-center gap-6">
+          <a href="#impressum" class="text-sm text-white/80 hover:text-white">Impressum</a>
+          <a href="#datenschutz" class="text-sm text-white/80 hover:text-white">Datenschutz</a>
+        </div>
       </div>
     </div>
   </footer>

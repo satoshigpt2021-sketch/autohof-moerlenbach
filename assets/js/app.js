@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   lucide.createIcons();
+  loadBusinessConfig();
 
   if (window.location.hash) {
     const target = document.querySelector(window.location.hash);
@@ -35,6 +36,50 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 let allVehicles = [];
+
+function loadBusinessConfig() {
+  fetch('data/config.json')
+    .then(function (res) {
+      if (!res.ok) throw new Error('Geschäftsdaten konnten nicht geladen werden');
+      return res.json();
+    })
+    .then(function (data) {
+      const business = data && data.business ? data.business : {};
+      const hours = business.hours || 'Mo-Fr 9:00-18:00 · Sa 9:00-13:00';
+      const hoursEl = document.getElementById('opening-hours');
+      if (hoursEl) {
+        hoursEl.textContent = hours;
+      }
+      const footerPhone = business.phone_display || business.phone || '0175 7060349';
+      const footerEmail = business.email || 'info@autohof-moerlenbach.de';
+      const phoneLink = document.querySelector('footer a[href^="tel:"]');
+      if (phoneLink) {
+        phoneLink.textContent = footerPhone;
+        phoneLink.href = 'tel:' + (business.phone || '+491****0349');
+      }
+      const mailLink = document.querySelector('footer a[href^="mailto:"]');
+      if (mailLink) {
+        mailLink.textContent = footerEmail;
+        mailLink.href = 'mailto:' + footerEmail;
+      }
+
+      const whatsapp = business.whatsapp || '+491****0349';
+      const whatsappUrl = 'https://wa.me/' + whatsapp.replace(/[^0-9]/g, '');
+      window.__businessData = { whatsapp: whatsapp, whatsappUrl: whatsappUrl };
+
+      const whatsappLink = document.querySelector('a[href^="https://wa.me/"]');
+      if (whatsappLink) {
+        whatsappLink.href = whatsappUrl;
+      }
+    })
+    .catch(function (err) {
+      console.error('Geschäftsdaten Fehler:', err);
+      const hoursEl = document.getElementById('opening-hours');
+      if (hoursEl) {
+        hoursEl.textContent = 'Mo-Fr 9:00-18:00 · Sa 9:00-13:00';
+      }
+    });
+}
 
 function initVehicleGrid() {
   const grid = document.getElementById('vehicle-grid');
@@ -148,7 +193,7 @@ function renderVehicleGrid(vehicles) {
     card.className = 'group bg-white rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-lg transition overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]';
     card.setAttribute('role', 'listitem');
     card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-label', vehicle.brand + ' ' + vehicle.model + ' – ' + (isSold ? 'Verkauft' : formatPrice(vehicle.price_eur)));
+    card.setAttribute('aria-label', vehicle.brand + ' ' + vehicle.model + ' - ' + (isSold ? 'Verkauft' : formatPrice(vehicle.price_eur)));
     card.dataset.id = vehicle.id;
 
     card.innerHTML =
@@ -268,7 +313,7 @@ function openVehicleModal(vehicle) {
   const cta = document.getElementById('modal-cta');
   if (cta) {
     const message = 'Hallo, ich interessiere mich für das Fahrzeug: ' + vehicle.brand + ' ' + vehicle.model + ' (' + vehicle.year + ')';
-    cta.href = 'https://wa.me/491757060349?text=' + encodeURIComponent(message);
+    cta.href = (window.__businessData && window.__businessData.whatsappUrl ? window.__businessData.whatsappUrl : 'https://wa.me/491757060349') + '?text=' + encodeURIComponent(message);
   }
 
   modal.classList.remove('hidden');
@@ -289,7 +334,7 @@ function buildImageList(vehicle) {
   if (vehicle.images && vehicle.images.length) {
     images.push.apply(images, vehicle.images);
   }
-  if (vehicle.main_image) {
+  if (vehicle.main_image && images.indexOf(vehicle.main_image) === -1) {
     images.push(vehicle.main_image);
   }
   if (images.length === 0) {
@@ -306,7 +351,7 @@ function showModalImage(index, images) {
 
   const imgEl = document.getElementById('modal-image');
   imgEl.src = list[currentImageIndex];
-  imgEl.alt = currentModalVehicle.brand + ' ' + currentModalVehicle.model + ' – Bild ' + (currentImageIndex + 1);
+  imgEl.alt = currentModalVehicle.brand + ' ' + currentModalVehicle.model + ' - Bild ' + (currentImageIndex + 1);
 
   const dotsContainer = document.getElementById('modal-dots');
   if (total > 1) {

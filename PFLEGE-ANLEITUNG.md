@@ -43,39 +43,48 @@ assets/img/vehicles/
 
 Öffnen Sie die Datei `data/vehicles.json` mit einem Texteditor (z. B. Editor/Notepad unter Windows oder TextEdit auf dem Mac).
 
-Der Inhalt sieht so aus (wenn noch keine Fahrzeuge vorhanden sind):
+Der Inhalt sieht so aus:
 
 ```json
-[]
+{
+  "vehicles": [
+    {
+      "id": "bmw-320d-2021",
+      ...
+    }
+  ]
+}
 ```
 
-Fügen Sie ein neues Fahrzeug hinzu, kopieren Sie die Vorlage unten und passen Sie die Werte an:
+Fügen Sie ein neues Fahrzeug hinzu, kopieren Sie die Vorlage unten und passen Sie die Werte an. Setzen Sie es innerhalb der eckigen Klammern nach dem letzten Fahrzeug (mit Komma davor):
 
 ```json
-[
-  {
-    "id": "fahrzeug-001",
-    "status": "available",
-    "brand": "BMW",
-    "model": "3er 320d",
-    "year": 2019,
-    "mileage_km": 89500,
-    "price_eur": 18900,
-    "fuel": "Diesel",
-    "power_kw": 140,
-    "transmission": "Automatik",
-    "color": "Schwarz",
-    "description": "Sehr gepflegter BMW 320d aus erster Hand. Scheckheftgepflegt, Nichtraucher-Fahrzeug.",
-    "features": ["Sitzheizung", "Navigationssystem", "Tempomat", "Lederausstattung"],
-    "images": [
-      "assets/img/vehicles/fahrzeug-001/01.jpg",
-      "assets/img/vehicles/fahrzeug-001/02.jpg",
-      "assets/img/vehicles/fahrzeug-001/03.jpg"
-    ],
-    "main_image": "assets/img/vehicles/fahrzeug-001/01.jpg",
-    "created_at": "2026-07-04"
-  }
-]
+{
+  "vehicles": [
+    {
+      "id": "fahrzeug-001",
+      "status": "available",
+      "brand": "BMW",
+      "model": "3er 320d",
+      "year": 2019,
+      "mileage_km": 89500,
+      "price_eur": 18900,
+      "fuel": "Diesel",
+      "power_kw": 140,
+      "transmission": "Automatik",
+      "color": "Schwarz",
+      "description": "Sehr gepflegter BMW 320d aus erster Hand. Scheckheftgepflegt, Nichtraucher-Fahrzeug.",
+      "features": ["Sitzheizung", "Navigationssystem", "Tempomat", "Lederausstattung"],
+      "images": [
+        "assets/img/vehicles/fahrzeug-001/01.jpg",
+        "assets/img/vehicles/fahrzeug-001/02.jpg",
+        "assets/img/vehicles/fahrzeug-001/03.jpg"
+      ],
+      "main_image": "assets/img/vehicles/fahrzeug-001/01.jpg",
+      "created_at": "2026-07-04"
+    }
+  ]
+}
 ```
 
 ### Felder erklärt
@@ -104,20 +113,22 @@ Fügen Sie ein neues Fahrzeug hinzu, kopieren Sie die Vorlage unten und passen S
 Wenn Sie ein weiteres Fahrzeug hinzufügen, setzen Sie ein Komma hinter die schließende Klammer `}` des ersten Fahrzeugs und fügen Sie das nächste ein:
 
 ```json
-[
-  {
-    "id": "fahrzeug-001",
-    ...
-  },
-  {
-    "id": "fahrzeug-002",
-    "status": "available",
-    "brand": "Volkswagen",
-    "model": "Golf 7",
-    "year": 2018,
-    ...
-  }
-]
+{
+  "vehicles": [
+    {
+      "id": "fahrzeug-001",
+      ...
+    },
+    {
+      "id": "fahrzeug-002",
+      "status": "available",
+      "brand": "Volkswagen",
+      "model": "Golf 7",
+      "year": 2018,
+      ...
+    }
+  ]
+}
 ```
 
 > **Wichtig:** Jedes Fahrzeug braucht eine eigene `id` und einen eigenen Bilder-Ordner!
@@ -126,7 +137,7 @@ Wenn Sie ein weiteres Fahrzeug hinzufügen, setzen Sie ein Komma hinter die schl
 
 ## 2. Ein Fahrzeug entfernen
 
-Wenn ein Fahrzeug verkauft ist, können Sie es entweder:
+Wenn ein Fahrzeug verkauft ist, können Sie entweder:
 
 ### Option A: Als verkauft markieren (empfohlen)
 
@@ -135,6 +146,8 @@ Wenn ein Fahrzeug verkauft ist, können Sie es entweder:
 ```json
 "status": "sold"
 ```
+
+Das Fahrzeug bleibt auf der Website sichtbar, wird aber als "Verkauft" markiert.
 
 ### Option B: Ganz entfernen
 
@@ -148,6 +161,8 @@ Löschen Sie den kompletten Eintrag (von `{` bis zur zugehörigen `}`) aus der `
 2. Ersetzen Sie die Bilder oder fügen Sie neue hinzu
 3. Wenn Sie neue Bilder hinzufügen, aktualisieren Sie die Liste in `vehicles.json` unter `"images"`
 
+> Wenn ein Fahrzeug keine eigenen Bilder hat, wird automatisch ein Platzhalter-Bild mit dem Markennamen angezeigt.
+
 ---
 
 ## 4. Kontaktdaten ändern
@@ -156,21 +171,30 @@ Alle Kontaktdaten stehen in der Datei `data/config.json`:
 
 ```json
 {
-  "name": "Autohof Mörlenbach",
-  "adresse": "Weinheimer Str. 41, 69509 Mörlenbach",
-  "telefon": "0175 7060349",
-  "email": "info@autohof-moerlenbach.de",
-  "oeffnungszeiten": "Mo-Fr 9:00-18:00 · Sa 9:00-13:00"
+  "business": {
+    "name": "Autohof Mörlenbach",
+    "address": "Weinheimer Str. 41, 69509 Mörlenbach",
+    "phone": "+491757060349",
+    "phone_display": "0175 7060349",
+    "whatsapp": "+491757060349",
+    "email": "info@autohof-moerlenbach.de",
+    "hours": "Mo-Fr 9:00-18:00 · Sa 9:00-13:00",
+    "google_review": {
+      "rating": 4.4,
+      "count": 169
+    }
+  }
 }
 ```
 
 | Feld | Was ändern? |
 |---|---|
-| `"name"` | Firmenname |
-| `"adresse"` | Straßenadresse und Postleitzahl |
-| `"telefon"` | Telefonnummer — nur Zahlen und Leerzeichen |
+| `"name"` (unter business) | Firmenname |
+| `"address"` | Straßenadresse und Postleitzahl |
+| `"phone"` | Telefonnummer im internationalen Format (für anklickbare Links) |
+| `"phone_display"` | Telefonnummer für die Anzeige auf der Website |
 | `"email"` | E-Mail-Adresse |
-| `"oeffnungszeiten"` | Öffnungszeiten mit Trennzeichen `·` |
+| `"hours"` | Öffnungszeiten mit Trennzeichen `·` |
 
 > **Tipp:** Ändern Sie immer nur den Text zwischen den Anführungszeichen `"..."`. Die Anführungszeichen selbst und die Kommata müssen stehen bleiben!
 
@@ -195,8 +219,19 @@ Wenn Sie die Dateien lokal geändert haben, müssen sie auf den Webserver (GitHu
 1. Die geänderten Dateien in Ihr GitHub-Repository laden (per `git` oder GitHub Web-Interface)
 2. Nach 1–2 Minuten ist die Website automatisch aktualisiert
 
-> Wenn Sie Hilfe beim Hochladen brauchen,fragen Sie Ihre betreende Person — dieser Schritt
+> Wenn Sie Hilfe beim Hochladen brauchen, fragen Sie Ihre betreuende Person — dieser Schritt
 > lässt sich später auch automatisieren.
+
+---
+
+## Für Eilige: Wie aktualisiere ich mein Fahrzeugangebot?
+
+1. Datei `data/vehicles.json` öffnen (mit Editor oder TextEdit)
+2. Das gewünschte Fahrzeug finden (oder ein neues einfügen)
+3. Werte wie Preis, Kilometerstand, Status ändern
+4. Datei speichern
+5. Hochladen (git push oder GitHub Web-Interface)
+6. Fertig — nach 1–2 Minuten ist die Website aktualisiert
 
 ---
 
