@@ -1,0 +1,15 @@
+{
+  "business": {
+    "name": "Autohof Mörlenbach",
+    "address": "Weinheimer Str. 41, 69509 Mörlenbach",
+    "phone": "+491757060349",
+    "phone_display": "0175 7060349",
+    "whatsapp": "+491757060349",
+    "email": "info@autohof-moerlenbach.de",
+    "hours": "Mo-Fr 9:00-18:00 · Sa 9:00-13:00",
+    "google_review": {
+      "rating": 4.4,
+      "count": 169
+    }
+  }
+}

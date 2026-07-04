@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+.env
+node_modules/
+.playwright-mcp/
+lighthouse-*.json
+report.json
+report.html
+performance-trace.json*
+desktop-view.png
+mobile-view.png
+mobile-screenshot*.png
