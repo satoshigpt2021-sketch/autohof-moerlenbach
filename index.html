@@ -55,10 +55,11 @@
   </header>
 
   <main id="main-content">
-    <section id="hero" class="relative min-h-[100dvh] flex items-center justify-center bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 pt-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-primary)] mb-6">Ihr zuverlässiger Autohof im Odenwald</h1>
-        <p class="text-lg md:text-xl text-[var(--color-text-light)] max-w-2xl mx-auto mb-8">Geprüfte Gebrauchtwagen | Faire Preise | Persönliche Beratung</p>
+    <section id="hero" class="relative min-h-[100dvh] flex items-center justify-center bg-cover bg-center bg-no-repeat pt-20" style="background-image: url('assets/img/hero.webp');">
+      <div class="absolute inset-0 bg-[var(--color-primary)]/70"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 drop-shadow-lg">Ihr zuverlässiger Autohof im Odenwald</h1>
+        <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 drop-shadow">Geprüfte Gebrauchtwagen | Faire Preise | Persönliche Beratung</p>
         <a href="#angebot" class="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-white font-semibold rounded-lg hover:bg-[var(--color-accent-dark)] transition shadow-lg hover:shadow-xl active:scale-[0.98]">
           Zum Fahrzeugangebot
           <i data-lucide="arrow-down"></i>
@@ -72,24 +73,27 @@
           <div>
             <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">Über uns</h2>
             <p class="text-[var(--color-text-light)] leading-relaxed mb-4">Seit Jahren ist der Autohof Mörlenbach Ihr kompetenter Ansprechpartner für geprüfte Gebrauchtwagen im Odenwald. Wir legen Wert auf Qualität, Transparenz und eine persönliche Beratung, die Sie versteht.</p>
-            <p class="text-[var(--color-text-light)] leading-relaxed">Ob Sie ein zuverlässiges Fahrzeug für den Alltag suchen oder sich professionell beraten lassen möchten - bei uns stehen Sie im Mittelpunkt.</p>
-          </div>
-          <div class="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)]">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="flex items-center gap-1 text-yellow-500">
-                <i data-lucide="star" class="fill-current"></i>
-                <i data-lucide="star" class="fill-current"></i>
-                <i data-lucide="star" class="fill-current"></i>
-                <i data-lucide="star" class="fill-current"></i>
-                <i data-lucide="star-half" class="fill-current"></i>
+            <p class="text-[var(--color-text-light)] leading-relaxed mb-8">Ob Sie ein zuverlässiges Fahrzeug für den Alltag suchen oder sich professionell beraten lassen möchten - bei uns stehen Sie im Mittelpunkt.</p>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-[var(--color-border)]">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="flex items-center gap-1 text-yellow-500">
+                  <i data-lucide="star" class="fill-current"></i>
+                  <i data-lucide="star" class="fill-current"></i>
+                  <i data-lucide="star" class="fill-current"></i>
+                  <i data-lucide="star" class="fill-current"></i>
+                  <i data-lucide="star-half" class="fill-current"></i>
+                </div>
+                <span class="text-2xl font-bold text-[var(--color-primary)]">4.4</span>
               </div>
-              <span class="text-2xl font-bold text-[var(--color-primary)]">4.4</span>
+              <p class="text-[var(--color-text-light)]">Basierend auf <strong class="text-[var(--color-text)]">169 Google-Bewertungen</strong></p>
+              <a href="https://www.google.com/search?q=Autohof+Mörlenbach" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-4 text-sm font-medium text-[var(--color-primary)] hover:underline">
+                Alle Bewertungen auf Google ansehen
+                <i data-lucide="external-link"></i>
+              </a>
             </div>
-            <p class="text-[var(--color-text-light)]">Basierend auf <strong class="text-[var(--color-text)]">169 Google-Bewertungen</strong></p>
-            <a href="https://www.google.com/search?q=Autohof+Mörlenbach" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-4 text-sm font-medium text-[var(--color-primary)] hover:underline">
-              Alle Bewertungen auf Google ansehen
-              <i data-lucide="external-link"></i>
-            </a>
+          </div>
+          <div class="relative rounded-2xl overflow-hidden shadow-sm border border-[var(--color-border)] aspect-[4/3]">
+            <img src="assets/img/about.webp" alt="Werkstatt-Atmosphäre beim Autohof Mörlenbach" class="w-full h-full object-cover">
           </div>
         </div>
       </div>

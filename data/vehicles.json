@@ -24,11 +24,11 @@
         "Regensensor"
       ],
       "images": [
-        "https://placehold.co/800x600/1e3a5f/ffffff?text=BMW+320d+Vorne",
-        "https://placehold.co/800x600/1e3a5f/ffffff?text=BMW+320d+Seite",
-        "https://placehold.co/800x600/1e3a5f/ffffff?text=BMW+320d+Innen"
+        "assets/img/vehicles/bmw-3er.webp",
+        "assets/img/vehicles/bmw-3er.webp",
+        "assets/img/vehicles/bmw-3er.webp"
       ],
-      "main_image": "https://placehold.co/800x600/1e3a5f/ffffff?text=BMW+320d",
+      "main_image": "assets/img/vehicles/bmw-3er.webp",
       "created_at": "2026-07-04T10:00:00Z"
     },
     {
@@ -55,11 +55,11 @@
         "Notbremsassistent"
       ],
       "images": [
-        "https://placehold.co/800x600/1e3a5f/ffffff?text=VW+Golf+8+Vorne",
-        "https://placehold.co/800x600/1e3a5f/ffffff?text=VW+Golf+8+Seite",
-        "https://placehold.co/800x600/1e3a5f/ffffff?text=VW+Golf+8+Heck"
+        "assets/img/vehicles/vw-golf.webp",
+        "assets/img/vehicles/vw-golf.webp",
+        "assets/img/vehicles/vw-golf.webp"
       ],
-      "main_image": "https://placehold.co/800x600/1e3a5f/ffffff?text=VW+Golf+8",
+      "main_image": "assets/img/vehicles/vw-golf.webp",
       "created_at": "2026-07-04T10:00:00Z"
     },
     {
@@ -86,10 +86,10 @@
         "Alufelgen"
       ],
       "images": [
-        "https://placehold.co/800x600/1e3a5f/ffffff?text=Mercedes+A-Klasse+Vorne",
-        "https://placehold.co/800x600/1e3a5f/ffffff?text=Mercedes+A-Klasse+Seite"
+        "assets/img/vehicles/mercedes-c.webp",
+        "assets/img/vehicles/mercedes-c.webp"
       ],
-      "main_image": "https://placehold.co/800x600/1e3a5f/ffffff?text=Mercedes+A-Klasse",
+      "main_image": "assets/img/vehicles/mercedes-c.webp",
       "created_at": "2026-07-04T10:00:00Z"
     }
   ]
